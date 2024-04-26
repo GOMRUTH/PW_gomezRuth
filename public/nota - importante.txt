@@ -1,0 +1,32 @@
+proyecto/
+|__ public/
+|   |__ css/
+|   |   |__ estilos.css
+|   |__ img/
+|   |   |__ Productos/
+|   |       |__ imagen1.jpg
+|   |       |__ imagen2.jpg
+|   |__ js/
+|       |__ script.js
+|__ views/
+|   |__ index.html
+|   |__ detalle_producto.html
+|   |__ carrito.html
+|   |__ ...
+|__ node_modules/
+|__ server.js
+|__ package.json
+
+/ tu-proyecto
+|-- /models
+|   |-- cliente.js
+|   |-- pedido.js
+|   |-- producto.js
+|-- /routes
+|   |-- clienteRoutes.js
+|   |-- pedidoRoutes.js
+|   |-- productoRoutes.js
+|-- /config
+|   |-- db.js
+|-- app.js
+|-- index.js

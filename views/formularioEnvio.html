@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Formulario de Pedidos </title>
+        <link rel="stylesheet" href="../public/css/style.css" type="text/css">
+        <script src="../public/js/script.js"></script>
+    </head>
+
+    <body>
+        <main class="Contorno Principal">
+            <div class="BannerLogo">
+                <img src="../public/img/Logo - Marca/LetraMMnegroFT.png">
+            </div>
+            <div>
+                <nav class="OpcionesMenu">
+                    <ul>
+                        <li><a href="principal.html"> Inicio </a></li>
+                        <li><a href="quienesSomos.html"> Quienes somos </a></li>
+                        <li><a href="productos.html"> Productos </a></li>
+                        <li><a href="formularioEnvio.html"> Mi carrito </a></li>
+                        <li><a href="contacto.html"> Contacto </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </main>
+
+        <h1>Formulario de Envío: </h1>
+        <form class="cuadro" id="formulario-pedido">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="apellido">Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido" required><br>
+            <label for="email">Correo Electrónico:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="telefono">Teléfono:</label><br>
+            <input type="tel" id="telefono" name="telefono" pattern="[0-9]{8,10}" required><br>
+            <label for="direccion">Dirección de Envío:</label><br>
+            <textarea id="direccion" name="direccion" required></textarea><br>
+
+            <!-- Aquí podrías mostrar los productos agregados al carrito -->
+            <div id="carrito-container">
+                <h2>Revisa tu carrito:</h2>
+                <ul id="lista-productos"></ul>
+            </div>
+
+            <div>Total: <span id="total"></span></div>
+            
+            <button type="submit" onclick="enviarPedido()" class="boton">Enviar Pedido</button>
+            <button type="button" onclick="cancelarPedido()" class="boton">Cancelar Pedido</button>
+            <button type="button" onclick="otroProducto()" class="boton" >Elegir otro producto</button>
+        </form>
+
+        <p>
+        </p>
+
+        <div class="espacio">
+            <a href="productos.html" class="boton">Volver a la Sección de productos</a>
+            <a href="principal.html" class="boton">Volver al inicio</a>
+        </div>
+
+        <p>
+        </p>
+
+        <footer class="credito"> 
+            <p> Derechos Reservados &copy; 2024 - Ruth Gomez</p>
+        </footer>
+        
+    </body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let total = 0;
+            const contenedor = document.getElementById('carrito-container');
+            const listaProductos = document.getElementById('lista-productos');
+            const totalSpan = document.getElementById('total');
+    
+            // Llenar la lista de productos en el carrito
+            carrito.forEach(producto => {
+                const li = document.createElement('li');
+                li.innerHTML = `${producto.nombre} - Cantidad: ${producto.cantidad} - Precio unitario: $${producto.precio} - Subtotal: $${producto.precio * producto.cantidad}`;
+                listaProductos.appendChild(li);
+                total += producto.precio * producto.cantidad;
+            });
+    
+            // Actualizar el total
+            totalSpan.textContent = `$${total}`;
+    
+            // Formulario de pedido
+            const formulario = document.getElementById('formulario-pedido');
+            formulario.addEventListener('submit', function(event) {
+                event.preventDefault();
+                enviarPedido();
+            });
+        });
+    
+        function enviarPedido() {
+            const nombre = document.getElementById('nombre').value.trim();
+            const apellido = document.getElementById('apellido').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const direccion = document.getElementById('direccion').value.trim();
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        
+            if (!nombre || !apellido || !email || !telefono || !direccion || carrito.length === 0) {
+                alert('Por favor, completa todos los campos');
+                return;  // Detiene la función si falta alguna validación
+            }
+        
+            localStorage.removeItem('carrito'); // Limpia el carrito
+            alert('Pedido enviado correctamente!');
+            setTimeout(function() {
+                window.location.href = 'principal.html';
+            }, 500);
+
+        }
+        
+        function cancelarPedido() {
+            localStorage.removeItem('carrito');
+            alert('Pedido cancelado');
+            window.location.href = 'principal.html';
+        }
+
+        function otroProducto() {
+            window.location.href = 'producto.html';
+        }
+    </script>
+
+</html>
