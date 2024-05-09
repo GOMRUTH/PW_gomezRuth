@@ -278,8 +278,12 @@ label {
 /********************************************************************************/
 /* Contacto */
 .contacto {
-  display: flex;
-  flex-direction: column;
+  border: 2px solid #333; 
+    padding: 20px;          
+    margin: 20px;           
+    border-radius: 15px;    
+    width: 300px;      
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
 }
 
 .contacto a {
@@ -312,6 +316,19 @@ label {
   line-height: 1.6;
 }
 
+.map {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 100%; /* Para asegurarse de que el mapa no exceda el tamaño del contenedor */
+  overflow: hidden; /* Oculta cualquier contenido que exceda el tamaño del contenedor */
+}
+
+.map iframe {
+  width: 100%; /* Hace que el iframe ocupe el 100% del ancho del contenedor */
+  height: 100%; /* Hace que el iframe ocupe el 100% de la altura del contenedor */
+}
+
 /* Pie de página */
 .credito {
   text-align: center;
@@ -326,18 +343,48 @@ label {
 /*DetalleProducto.html*/
 
 .btn-agregar-carrito {
-  background-color: #b18ab2; /* Color de fondo alineado con el esquema de color del sitio */
-  color: white; /* Texto blanco para contraste */
-  padding: 10px 15px; /* Acolchado adecuado */
-  font-size: 16px; /* Tamaño de fuente visible */
-  border: none; /* Sin borde para un look más limpio */
-  border-radius: 5px; /* Bordes redondeados suavemente */
-  cursor: pointer; /* Cursor de mano para indicar interactividad */
-  transition: background-color 0.3s ease-in-out; /* Transición suave para el hover */
+  background-color: #8a2be2; /* Un morado más vivo */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn-agregar-carrito:hover {
-  background-color: #a963bc; /* Un tono más oscuro para el hover */
+  background-color: #7a23d2; /* Un poco más oscuro al pasar el mouse */
+}
+
+.btn-continuar-comprando {
+  background-color: #ba55d3; /* Lila suave */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-continuar-comprando:hover {
+  background-color: #a245c1; /* Lila oscuro al pasar el mouse */
+}
+
+.btn-ir-formulario {
+  background-color: #9932cc; /* Un violeta más intenso */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-ir-formulario:hover {
+  background-color: #872dac; /* Violeta oscuro al pasar el mouse */
 }
 
 /*******************************************************************************/
@@ -395,4 +442,3 @@ label {
     opacity: 1;
   }
 }
-
