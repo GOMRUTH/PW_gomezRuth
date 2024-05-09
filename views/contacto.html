@@ -40,17 +40,17 @@
             <a href="https://wa.me/123456789"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
 
-        <form action="https://formspree.io/f/mzbnynjl" method="POST" class="cuadro" id="formulario-consulta" >
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre-consulta" name="nombre" required><br>
-            <label for="apellido">Apellido:</label><br>
-            <input type="text" id="apellido-consulta" name="apellido" required><br>
-            <label for="email">Correo Electrónico:</label><br>
-            <input type="email" id="email-consulta" name="email" required><br>
-            <label for="comentario">Escriba la consulta:</label><br>
-            <textarea id="comentario" name="comentario" required></textarea><br>
+        <form action="https://formspree.io/f/mayrkygy" method="post" class="cuadro" id="formulario-consulta">
 
-            <button type="submit" class="boton">Enviar Consulta</button>
+            <label for="nombre">Nombre y Apellido</label><br>
+              <input type="text" name="name" id="nombre-consulta" placeholder="First and Last" required=""><br>
+              <label for="email-address">Correo electronico</label><br>
+              <input type="email" name="_replyto" id="email" placeholder="email@domain.tld" required=""><br>
+              <label for="message">Consulta</label><br>
+              <textarea rows="5" name="message" id="message" placeholder="Escriba aquí tu consulta." required=""></textarea><br>
+              <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission"><br>
+
+              <input type="submit" class="boton" value="Enviar Consulta"><br>
         </form>
 
         <section class="map">
